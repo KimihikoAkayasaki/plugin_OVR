@@ -160,7 +160,18 @@ public class SteamVR : ITrackingDevice
 
     public void SignalJoint(int jointId)
     {
-        // Ignored, do nothing
+        if (!Initialized || OpenVR.System is null) return; // Sanity check
+
+        try
+        {
+            // Trigger a haptic pulse on the device Amethyst requested it to be, unwrap to OpenVR ID
+            OpenVR.System.TriggerHapticPulse((uint)TrackedVrIndexes.ElementAt(jointId), 0, 200);
+        }
+        catch (Exception e)
+        {
+            Host?.Log("Exception processing a heart beat call! " +
+                      $"Message: {e.Message}", LogSeverity.Error);
+        }
     }
 
     public ObservableCollection<TrackedJoint> TrackedJoints { get; } = new();

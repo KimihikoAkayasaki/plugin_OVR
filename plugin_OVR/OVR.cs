@@ -26,7 +26,7 @@ namespace plugin_OVR;
 [ExportMetadata("Name", "SteamVR")]
 [ExportMetadata("Guid", "K2VRTEAM-AME2-APII-TDPR-TPROVDOPENVR")]
 [ExportMetadata("Publisher", "公彦赤屋先")]
-[ExportMetadata("Version", "1.0.0.1")]
+[ExportMetadata("Version", "1.0.0.2")]
 [ExportMetadata("Website", "https://github.com/KimihikoAkayasaki/plugin_OVR")]
 public class SteamVR : ITrackingDevice
 {
